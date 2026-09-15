@@ -4,7 +4,6 @@
 
 ## Architecture
 
-![Architecture](https://via.placeholder.com/800x400?text=Hermes+GO+Architecture)
 
 Hermes GO uses an agentic workflow to process emails safely:
 1. **Triage Agent**: Analyzes incoming emails to detect priorities, deadlines, and actionable items.
@@ -32,18 +31,8 @@ Hermes GO uses an agentic workflow to process emails safely:
 ### Backend Setup
 1. Navigate to the `backend/` directory.
 2. Create a virtual environment: `python -m venv venv` and activate it.
-3. Install dependencies: `pip install -r requirements.txt` (ensure FastAPI, SQLAlchemy, instructor, google-auth, etc., are installed).
-4. Copy `.env.example` to `.env` and fill in your credentials:
-   ```env
-   GOOGLE_CLIENT_ID=your_client_id_here
-   GOOGLE_CLIENT_SECRET=your_client_secret_here
-   GEMINI_API_KEY=your_gemini_key_here
-   JWT_SECRET=your_random_jwt_secret
-   REDIRECT_URI=http://localhost:8000/auth/callback
-   FRONTEND_URL=http://localhost:3000
-   DEMO_MODE=false
-   ```
-5. Run the backend: `uvicorn main:app --reload` (Runs on port 8000).
+3. Install dependencies: `pip install -r requirements.txt` (ensure FastAPI, SQLAlchemy, instructor, google-auth, etc., are installed).   ```
+4. Run the backend: `uvicorn main:app --reload` (Runs on port 8000).
 
 ### Frontend Setup
 1. Navigate to the `frontend/` directory.
@@ -57,16 +46,9 @@ To easily demonstrate the product without connecting a live Gmail account, enabl
 3. In the frontend, click "Login with Google" (OAuth will be instantly bypassed).
 4. The database will be seeded with 15 mock emails containing invoices, meeting requests, and newsletters.
 
-### 90-Second Hackathon Demo Script
-1. **Open the seeded inbox**: Log in using Demo Mode to show a realistic, cluttered inbox.
-2. **Show Today’s Plan**: Navigate to the "Today's Plan" tab. Highlight how the Autopilot has already extracted deadlines and generated action proposals.
-3. **Examine Evidence**: Open an assignment email proposal and show the evidence-based deadline extraction.
-4. **Approve Actions**: Click "Approve" on a calendar study block and a draft reply proposal.
-5. **Execute and Verify**: Click "Execute" on the approved items and show the verified execution receipts in the Agent Activity timeline.
-6. **Clean Up**: Show the newsletter cleanup proposal and shipping snooze action, emphasizing that the system correctly flagged them and waited for approval before taking external action.
-
 ## Security & Approval Model
 Hermes GO operates on a "Human-in-the-loop" default. The Planner Agent proposes actions, but the Executor is physically gated by the database `execution_state`. External actions (like sending emails) are strictly marked as `requires_approval=True`.
 
-## Evaluation
-The project includes a seeded fixture set in `demo_seeder.py` to evaluate the extraction accuracy, plan acceptance rate, and tool success rate of the agentic workflow.
+# Hermes-GO
+Hermes GO is an app that can classify your emails on the basis of urgency. It will summarize long emails and remind you when responses are due. It can even generate responses for emails that require them.
+
