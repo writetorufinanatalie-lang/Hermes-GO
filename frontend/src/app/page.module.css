@@ -1,0 +1,155 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  padding: 20px;
+}
+
+.main {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--cream);
+  border: 4px solid var(--slate-black);
+  box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
+
+/* Fake window header */
+.main::before {
+  content: "Hermes GO OS.exe";
+  display: flex;
+  align-items: center;
+  background-color: var(--slate-black);
+  color: var(--cream);
+  height: 30px;
+  padding: 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 4px solid var(--slate-black);
+}
+
+.mainContent {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: normal;
+  letter-spacing: -1px;
+  color: var(--slate-black);
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+  font-size: 24px;
+  color: var(--slate-black);
+}
+
+.roleSelection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.rolePrompt {
+  font-size: 20px;
+  color: var(--slate-black);
+  text-align: center;
+}
+
+.roleOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.roleOption {
+  padding: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.activeRole {
+  background: var(--slate-black) !important;
+  color: var(--cream) !important;
+  box-shadow: none !important;
+  transform: translate(2px, 2px);
+}
+
+.errorAlert {
+  background: var(--cream);
+  color: red;
+  border: 2px dashed red;
+  padding: 12px 20px;
+  font-size: 18px;
+  width: 100%;
+  text-align: center;
+}
+
+.loginBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Pixel art Google icon container instead of SVG */
+.googleIcon {
+  width: 24px;
+  height: 24px;
+  background-color: var(--slate-black);
+  border: 2px solid var(--slate-black);
+  /* A simple multi-color pixel box to represent Google */
+  background-image: 
+    linear-gradient(90deg, #ea4335 50%, #4285f4 50%),
+    linear-gradient(90deg, #fbbc05 50%, #34a853 50%);
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+  background-position: top, bottom;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  background-color: var(--slate-black);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 24px;
+  }
+  .title {
+    font-size: 48px;
+  }
+}
